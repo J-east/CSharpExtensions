@@ -164,8 +164,7 @@ namespace CSExtensions {
         public static unsafe T PassData<T>(ushort flag, ref ushort enable, byte[] buff, int datalen, ref uint offset) where T : struct {
             byte[] dataToFill;
             if ((flag & enable) > 0) {
-                dataToFill = buff.Skip((int)offset).Take((int)datalen).ToArray();
-                SightLineSerialAPI.UIMessageQueue.Enqueue(new UIDataElement() { rawhex = dataToFill.ToList() });
+                dataToFill = buff.Skip((int)offset).Take((int)datalen).ToArray();                
                 offset += (uint)datalen;
 
                 float test;
